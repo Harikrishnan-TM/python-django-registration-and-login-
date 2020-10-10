@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 from django.urls import reverse
 from accounts.forms import CustomUserCreationForm
+from django.contrib import messages
 
 
 
@@ -21,6 +22,8 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
             return redirect('login')
     return render(request, 'accounts/register.html', {'form': form})
     
