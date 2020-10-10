@@ -21,7 +21,7 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('register'))
+            return redirect('login')
     return render(request, 'accounts/register.html', {'form': form})
     
 @login_required()    
