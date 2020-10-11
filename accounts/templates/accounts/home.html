@@ -13,11 +13,12 @@
   <body>
     <nav class="navbar  navbar-light bg-primary">
         <a class="navbar-brand" style="color: #f8f9fa" href="#">Navbar</a>
-        
+          
           <div class="form-inline my-2 my-lg-0 ml-auto">
-            
-            <a href="{% url 'logout' %}" class="btn btn-success my-2 my-sm-0" role="button">logout</a>
+            <span class="user" style="color: #f8f9fa">Hello, {{request.user}}</span>
+            <a href="{% url 'logout' %}" class="btn btn-success my-2 my-sm-0 ml-3" role="button">logout</a>
           </div>
+          
         
     </nav>
 
